@@ -20,13 +20,13 @@ namespace JSON_Pokemon_
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    // this is correct file, build from here\\
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
 
             InitializeComponent();
-
             allPokemonAPI api;
             string url = "https://pokeapi.co/api/v2/pokemon?limit=1200";
 
@@ -35,52 +35,36 @@ namespace JSON_Pokemon_
                 string json = client.GetStringAsync(url).Result;
                 api = JsonConvert.DeserializeObject<allPokemonAPI>(json);
 
-
                 foreach (var resultObject in api.results.OrderBy(x => x.name).ToList())
                 {
+
                     lstPokemon.Items.Add(resultObject);
-                }
-                var selection = (ResultObject)lstPokemon.SelectedItem;
-                string url2 = selection.url;
-                using (var client2 = new HttpClient())
-                {
-                    string json2 = client.GetStringAsync(url).Result;
-                    api = JsonConvert.DeserializeObject<allPokemonAPI>(json);
-                    foreach (var pokemonSprites in api.results.OrderBy(x => x.name).ToList())
-                    {
-                        lstSprite.Items.Add(pokemonSprites);
-                    }
-                }
-
-            }
-
-
-            //void lstPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
-            //{
-
-            //    var selection = (ResultObject)lstPokemon.SelectedItem;
-            //    lbName.Content = selection.name;
-            //    lbHeight.Content = selection.height;
-
-                //var selection2 = (ResultObject)lstPokemon.SelectedItem;
-                //string url2 = selection.url;
-                //using (var client = new HttpClient())
-                //{
-                //    string json = client.GetStringAsync(url2).Result;
-                //    api = JsonConvert.DeserializeObject<allPokemonAPI>(json);
-
-                //    foreach (var pokemonSprite in api.results.OrderBy(x => x.name).ToList())
-                //    {
-                //        lstPokemon.Items.Add(pokemonSprite);
-                //    }
-                //}
-                //var selection2 = (PokemonSprites)lstPokemon.SelectedItem;
-                //imgPokemon.Source = new BitmapImage(new Uri(selection2.back_default));
-
-                // imgPokemon.Source = new BitmapImage(new Uri(selection.back_default));
-
-                //var selectedpokemon = (PokemonSprites)lstPokemon.SelectedItem;
-                //imgPokemon.Source = new BitmapImage(new Uri(selectedpokemon.back_default));
+                }//do this again 
             }
         }
-    }
+        public void lstPokemon_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+            SelectedPokemo api;
+            var selection = (ResultObject)lstPokemon.SelectedItem;
+            string urlSelected = selection.url;
+           // lbName.Content = selection.name;
+
+            var PokemonSelection = (ResultObject)lstPokemon.SelectedItem;
+            using (var client = new HttpClient())
+            {
+                string json = client.GetStringAsync(urlSelected).Result;
+                api = JsonConvert.DeserializeObject<SelectedPokemo>(json);
+            }
+
+                lbName.Content = api.name;
+                lbHeight.Content = api.height;
+                lbWeight.Content = api.weight;               
+               imgPokemon.Source = new BitmapImage(new Uri(api.sprites.back_default));
+
+            }
+
+
+        }
+        }
+    

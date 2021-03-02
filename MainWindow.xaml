@@ -12,7 +12,7 @@
         <Label x:Name="lbName" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,22,0,0" VerticalAlignment="Top" Width="355"/>
         <Label x:Name="lbHeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,63,0,0" VerticalAlignment="Top" Width="355"/>
         <Label x:Name="lbWeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,104,0,0" VerticalAlignment="Top" Width="355"/>
-        <ListBox x:Name="lstSprite" Margin="658,350,0,0"/>
+        
 
     </Grid>
 </Window>
