@@ -61,10 +61,11 @@ namespace JSON_Pokemon_
                 lbHeight.Content = api.height;
                 lbWeight.Content = api.weight;               
                imgPokemon.Source = new BitmapImage(new Uri(api.sprites.back_default));
-
-            }
-
-
+            //this will sometimes result in error as certain pokemon such as "mega" forms do not
+            //contain a value for front/back_default 
         }
+
+
+    }
         }
     
