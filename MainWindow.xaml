@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JSON_Pokemon_"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#FFF2FFE7">
     <Grid>
         <ListBox x:Name="lstPokemon" HorizontalAlignment="Left" Height="391" Margin="20,22,0,0" VerticalAlignment="Top" Width="334" SelectionChanged="lstPokemon_SelectionChanged"/>
-        <Image x:Name="imgPokemon" HorizontalAlignment="Left" Height="255" Margin="395,158,0,0" VerticalAlignment="Top" Width="371"/>
-        <Label x:Name="lbName" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,22,0,0" VerticalAlignment="Top" Width="355"/>
-        <Label x:Name="lbHeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,63,0,0" VerticalAlignment="Top" Width="355"/>
-        <Label x:Name="lbWeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="412,104,0,0" VerticalAlignment="Top" Width="355"/>
-        
+        <Image x:Name="imgPokemon" HorizontalAlignment="Left" Height="255" Margin="400,131,0,0" VerticalAlignment="Top" Width="371"/>
+        <Label x:Name="lbName" Content="Label" HorizontalAlignment="Left" Height="36" Margin="493,10,0,0" VerticalAlignment="Top" Width="355"/>
+        <Label x:Name="lbHeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="493,54,0,0" VerticalAlignment="Top" Width="355"/>
+        <Label x:Name="lbWeight" Content="Label" HorizontalAlignment="Left" Height="36" Margin="493,95,0,0" VerticalAlignment="Top" Width="355"/>
+        <TextBox HorizontalAlignment="Left" Margin="400,19,0,0" Text="Name" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="18"/>
+        <TextBox HorizontalAlignment="Left" Margin="400,63,0,0" Text="Height" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="18"/>
+        <TextBox HorizontalAlignment="Left" Margin="400,104,0,0" Text="Weight" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" Height="18" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="btnSwitch" Content="Switch Image" HorizontalAlignment="Left" Height="21" Margin="512,398,0,0" VerticalAlignment="Top" Width="93" Click="btnSwitch_Click"/>
+
 
     </Grid>
 </Window>
